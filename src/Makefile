@@ -27,9 +27,8 @@ clean:
 
 style: 
 	@echo "\033[1;34mStyling\033[0m"
-	@mv ../materials/linters/.clang-format ./
+	@cp ../materials/linters/.clang-format ./
 	@clang-format -i *.c
 	@clang-format -i *.h
-	@clang-format -i tests/*.c tests/*.h
-	@mv .clang-format ../materials/linters
+	@rm -rf .clang-format
 	@echo "\033[1;42m DONE \033[0m" 
