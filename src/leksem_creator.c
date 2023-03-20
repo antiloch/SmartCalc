@@ -26,6 +26,15 @@ int handle_number(char **input_str, struct lexeme *output_lexeme) {
 int handle_operator(char **input_str, struct lexeme *output_lexeme) {
   int result = SUCCESS;
   output_lexeme->value_type = OPERATOR;
+  if (one_symbol_operator(input_str, output_lexeme));
+  else if (multi_symbol_operator(input_str, output_lexeme));
+  else result = FAIL;
+  return result;
+}
+
+int one_symbol_operator(char **input_str, lexeme *output_lexeme)
+{
+  int result = SUCCESS;
   if (**input_str == '(')
     output_lexeme->value = '(';
   else if (**input_str == ')')
@@ -40,13 +49,27 @@ int handle_operator(char **input_str, struct lexeme *output_lexeme) {
     output_lexeme->value = '/';
   else if (**input_str == '^')
     output_lexeme->value = '^';
-  else
+  else {
     result = FAIL;
+    *input_str = *input_str - 1;
+  }
   *input_str = *input_str + 1;
   return result;
 }
 
-void add_number(char **input_str, struct lexeme *output_lexeme) {
+int multi_symbol_operator(char **input_str, lexeme *output_lexeme)
+{
+  int result = SUCCESS;
+  if (**input_str == 's' && *(*input_str + 1) == 'i' && *(*input_str + 2) == 'n') {
+    output_lexeme->value = SIN;
+    *input_str = *input_str + 3;
+  }
+  else result = FAIL;
+  return result;
+}
+
+void add_number(char **input_str, struct lexeme *output_lexeme)
+{
   int int_number = 0, int_float = 0;
   read_number(input_str, &int_number, &int_float);
   write_number(output_lexeme, int_number, int_float);

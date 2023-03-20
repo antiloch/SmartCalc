@@ -1,7 +1,7 @@
 #include "leksem_creator.h"
 
 int main() {
-  char *example = "2+3-3.45*(2+14)\0";
+  char *example = "2+sin3-3.45*(2+14)\0";
   struct lexeme lexems[255];
   int result = converter_to_lexeme(&example, lexems);
   for (int i = 0; i < 255 && lexems[i].value_type != END; i++) {
