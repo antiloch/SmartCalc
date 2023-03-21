@@ -10,7 +10,9 @@
 #define INT_NUMBER 1
 #define FLOAT_NUMBER 2
 #define OPERATOR 3
+#define VARIABLE 4
 #define END 0
+
 #define SUCCESS 1
 #define FAIL 0
 
@@ -33,6 +35,7 @@ typedef struct lexeme {
 int converter_to_lexeme(char **input_str, struct lexeme *output_lexemes);
 int handle_number(char **input_str, struct lexeme *output_lexeme);
 int handle_operator(char **input_str, struct lexeme *output_lexeme);
+int handle_variable(char **input_str, struct lexeme *output_lexeme);
 int one_symbol_operator(char **input_str, struct lexeme *output_lexeme);
 int multi_symbol_operator(char **input_str, struct lexeme *output_lexeme);
 void add_number(char **input_str, struct lexeme *output_lexeme);

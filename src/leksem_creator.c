@@ -3,12 +3,10 @@
 int converter_to_lexeme(char **input_str, struct lexeme *output_lexemes) {
   int result = SUCCESS;
   while (**input_str != '\0' && result != FAIL) {
-    if (handle_number(input_str, output_lexemes))
-      ;
-    else if (handle_operator(input_str, output_lexemes))
-      ;
-    else
-      result = FAIL;
+    if (handle_number(input_str, output_lexemes));
+    else if (handle_operator(input_str, output_lexemes));
+    else if (handle_variable(input_str, output_lexemes));
+    else result = FAIL;
     output_lexemes = output_lexemes + 1;
   }
   return result;
@@ -29,6 +27,18 @@ int handle_operator(char **input_str, struct lexeme *output_lexeme) {
   if (one_symbol_operator(input_str, output_lexeme));
   else if (multi_symbol_operator(input_str, output_lexeme));
   else result = FAIL;
+  return result;
+}
+
+int handle_variable(char **input_str, lexeme *output_lexeme)
+{
+  int result = SUCCESS;
+  if (**input_str == 'x') {
+    output_lexeme->value_type = VARIABLE;
+    output_lexeme->value = VARIABLE;
+  }
+  else result = FAIL;
+  *input_str = *input_str + 1;
   return result;
 }
 
@@ -63,6 +73,30 @@ int multi_symbol_operator(char **input_str, lexeme *output_lexeme)
   if (**input_str == 's' && *(*input_str + 1) == 'i' && *(*input_str + 2) == 'n') {
     output_lexeme->value = SIN;
     *input_str = *input_str + 3;
+  } else if (**input_str == 'c' && *(*input_str + 1) == 'o' && *(*input_str + 2) == 's') {
+    output_lexeme->value = COS;
+    *input_str = *input_str + 3;
+  } else if (**input_str == 't' && *(*input_str + 1) == 'a' && *(*input_str + 2) == 'n') {
+    output_lexeme->value = TAN;
+    *input_str = *input_str + 3;
+  } else if (**input_str == 'l' && *(*input_str + 1) == 'g') {
+    output_lexeme->value = LG;
+    *input_str = *input_str + 2;
+  } else if (**input_str == 'l' && *(*input_str + 1) == 'n') {
+    output_lexeme->value = LN;
+    *input_str = *input_str + 2;
+  } else if (**input_str == 'a' && *(*input_str + 1) == 's' && *(*input_str + 2) == 'i' && *(*input_str + 3) == 'n') {
+    output_lexeme->value = ASIN;
+    *input_str = *input_str + 4;
+  } else if (**input_str == 'a' && *(*input_str + 1) == 'c' && *(*input_str + 2) == 'o' && *(*input_str + 3) == 's') {
+    output_lexeme->value = ACOS;
+    *input_str = *input_str + 4;
+  } else if (**input_str == 'a' && *(*input_str + 1) == 't' && *(*input_str + 2) == 'a' && *(*input_str + 3) == 'n') {
+    output_lexeme->value = ATAN;
+    *input_str = *input_str + 4;
+  } else if (**input_str == 's' && *(*input_str + 1) == 'q' && *(*input_str + 2) == 'r' && *(*input_str + 3) == 't') {
+    output_lexeme->value = SQRT;
+    *input_str = *input_str + 4;
   }
   else result = FAIL;
   return result;
