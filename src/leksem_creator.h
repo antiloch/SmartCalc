@@ -18,7 +18,7 @@
 
 #define LN 1000
 #define LG 1001
-#define SIN 1000
+#define SIN 2000
 #define COS 2001
 #define TAN 2002
 #define ASIN 2010
