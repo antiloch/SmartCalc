@@ -25,6 +25,13 @@
 #define ACOS 2011
 #define ATAN 2012
 #define SQRT 3000
+#define UNAR_MINUS 4000
+#define UNAR_PLUS 4001
+
+#define LOW_PRIORITY 0
+#define MID_PRIORITY 1
+#define HIGH_PRIORITY 2
+#define SUPREME_PRIORITY 3
 
 typedef struct lexeme {
   int value;

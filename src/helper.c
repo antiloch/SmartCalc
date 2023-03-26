@@ -23,4 +23,5 @@ void lexeme_print(lexeme *lexemes)
             printf(" [x] ");
         }
     }
+    printf("\n");
 }
