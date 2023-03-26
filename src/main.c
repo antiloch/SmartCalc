@@ -4,7 +4,7 @@
 
 int main() {
   int result = SUCCESS;
-  char *example = "(-1)";
+  char *example = "12+14-14*3";
   struct lexeme lexems[255];
   if (converter_to_lexeme(&example, lexems)) {
     lexeme_print(lexems);

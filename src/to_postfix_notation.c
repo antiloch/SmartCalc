@@ -5,70 +5,81 @@ int to_postfix_notation(lexeme *input_lexemes)
 {
     int result = SUCCESS;
     struct lexeme output_lexemes[255];
-    result = create_postix_lexeme(input_lexemes, output_lexemes);
+    result = create_postfix_lexeme(input_lexemes, output_lexemes);
     lexeme_print(output_lexemes);
     return result;
 }
 
-int create_postix_lexeme(lexeme *input_lexemes, lexeme *output_lexemes)
+int create_postfix_lexeme(lexeme *input_lexemes, lexeme *output_lexemes)
 {
     int result = SUCCESS;
     struct static_stack stack;
     initiate(&stack);
+    result = while_lexemes_to_read(input_lexemes, &output_lexemes, &stack);
+    result = pops_remain_operators(&output_lexemes, &stack);
+    return result;
+}
+
+int while_lexemes_to_read(lexeme *input_lexemes, lexeme **output_lexemes, static_stack *stack)
+{
+    int result = SUCCESS;
     while (input_lexemes->value_type != END && result != FAIL)
     {
-        int top_stack_value = 0;
-        int top_stack_type = 0;
-        int top_stack_priority = 0;
-        if (stack.size > 0) {
-            top_stack_value = stack.data[stack.size - 1].value;
-            top_stack_type = stack.data[stack.size - 1].value_type;
-            top_stack_priority = stack.data[stack.size - 1].double_num;
-        }
-        if (input_lexemes->value_type == INT_NUMBER || input_lexemes->value_type == VARIABLE || input_lexemes->value_type == FLOAT_NUMBER)
-        {
-            *output_lexemes = *input_lexemes;
-            output_lexemes = output_lexemes + 1;
-        }
-        else if (input_lexemes->value >= LN || input_lexemes->value == '(')
-        {
-            push(&stack, *input_lexemes);
-        }
-        else if (input_lexemes->value == ')')
-        {
-            while (top_stack_value != '(' && top_stack_type == OPERATOR && result != FAIL)
-            {
-                if (stack.size == 0) result = FAIL;
-                else {
-                    *output_lexemes = pop(&stack);
-                    output_lexemes = output_lexemes + 1;
-                    top_stack_value = stack.data[stack.size - 1].value;
-                    top_stack_type = stack.data[stack.size - 1].value_type;
-                }
-            }
-            pop(&stack);
-        }
-        else 
-        {
-            while ((top_stack_value >= LN || top_stack_priority >= input_lexemes->double_num) && stack.size > 0 && top_stack_value != '(')
-            {
-                *output_lexemes = pop(&stack);
-                output_lexemes = output_lexemes + 1;
-                top_stack_value = stack.data[stack.size - 1].value;
-                top_stack_priority = stack.data[stack.size - 1].double_num;
-            }
-            push(&stack, *input_lexemes);
-        }
+        if (input_lexemes->value_type == INT_NUMBER || input_lexemes->value_type == VARIABLE || input_lexemes->value_type == FLOAT_NUMBER) check_number(input_lexemes, output_lexemes);
+        else if (input_lexemes->value >= LN || input_lexemes->value == '(') check_prefix_open_bracket(input_lexemes, stack);
+        else if (input_lexemes->value == ')') check_close_braket(output_lexemes, stack);
+        else check_operation(input_lexemes, output_lexemes, stack);
         input_lexemes = input_lexemes + 1;
     }
-    while (stack.size > 0 && result != FAIL)
+    return result;
+}
+
+void check_number(lexeme *input_lexemes, lexeme **output_lexemes)
+{
+    **output_lexemes = *input_lexemes;
+    *output_lexemes = *output_lexemes + 1;
+}
+
+void check_prefix_open_bracket(lexeme *input_lexemes, static_stack *stack)
+{
+    push(stack, *input_lexemes);
+}
+
+int check_close_braket(lexeme **output_lexemes, static_stack *stack)
+{
+    int result = SUCCESS;
+    while (stack->data[stack->size - 1].value != '(' && stack->data[stack->size - 1].value_type == OPERATOR && result != FAIL)
     {
-        int top_stack_type = stack.data[stack.size - 1].value_type;
-        int top_stack_value = stack.data[stack.size - 1].value;
-        if (top_stack_type != OPERATOR || top_stack_value == '(' || top_stack_value == ')') result = FAIL;
+        if (stack->size == 0) result = FAIL;
         else {
-            *output_lexemes = pop(&stack);
-            output_lexemes = output_lexemes + 1;
+            **output_lexemes = pop(stack);
+            *output_lexemes = *output_lexemes + 1;
+        }
+    }
+    pop(stack);
+    return result;
+}
+
+int check_operation(lexeme *input_lexemes, lexeme **output_lexemes, static_stack *stack)
+{
+    while ((stack->data[stack->size - 1].value >= LN || stack->data[stack->size - 1].double_num >= input_lexemes->double_num) && stack->size > 0 && stack->data[stack->size - 1].value != '(')
+    {
+        **output_lexemes = pop(stack);
+        *output_lexemes = *output_lexemes + 1;
+    }
+    push(stack, *input_lexemes);
+    return 0;
+}
+
+int pops_remain_operators(lexeme **output_lexemes, static_stack *stack)
+{
+    int result = SUCCESS;
+    while (stack->size > 0 && result != FAIL)
+    {
+        if (stack->data[stack->size - 1].value_type != OPERATOR || stack->data[stack->size - 1].value == '(' || stack->data[stack->size - 1].value == ')') result = FAIL;
+        else {
+            **output_lexemes = pop(stack);
+            *output_lexemes = *output_lexemes + 1;
         }
     }
     return result;

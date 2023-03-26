@@ -55,21 +55,33 @@ int one_symbol_operator(char **input_str, lexeme *output_lexeme)
     output_lexeme->double_num = SUPREME_PRIORITY;
     output_lexeme->value = ')';
   }
-  else if (**input_str == '*') {
-    output_lexeme->double_num = MID_PRIORITY;
-    output_lexeme->value = '*';
-  }
   else if (**input_str == '-') {
-    output_lexeme->double_num = LOW_PRIORITY;
-    output_lexeme->value = '-';
+    if (*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9')
+    {
+      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->value = '-';
+    } else {
+      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->value = UNAR_MINUS;
+    }
   }
   else if (**input_str == '+') {
-    output_lexeme->double_num = LOW_PRIORITY;
-    output_lexeme->value = '+';
+    if (*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9')
+    {
+      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->value = '+';
+    } else {
+      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->value = UNAR_PLUS;
+    }
   }
   else if (**input_str == '/') {
     output_lexeme->double_num = MID_PRIORITY;
     output_lexeme->value = '/';
+  }
+  else if (**input_str == '*') {
+    output_lexeme->double_num = MID_PRIORITY;
+    output_lexeme->value = '*';
   }
   else if (**input_str == '^') {
     output_lexeme->double_num = HIGH_PRIORITY;
