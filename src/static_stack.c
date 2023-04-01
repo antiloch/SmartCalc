@@ -17,3 +17,8 @@ struct lexeme pop(static_stack *stack)
     stack->size--;
     return stack->data[stack->size];
 }
+
+lexeme get_top_lexeme(static_stack *stack)
+{
+    return stack->data[stack->size - 1];
+}

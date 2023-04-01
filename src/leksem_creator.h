@@ -37,6 +37,7 @@ typedef struct lexeme {
   int value;
   double double_num;
   int value_type;
+  int priority;
 } lexeme;
 
 int converter_to_lexeme(char **input_str, struct lexeme *output_lexemes);

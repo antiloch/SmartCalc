@@ -48,43 +48,43 @@ int one_symbol_operator(char **input_str, lexeme *output_lexeme)
 {
   int result = SUCCESS;
   if (**input_str == '(') {
-    output_lexeme->double_num = SUPREME_PRIORITY;
+    output_lexeme->priority = SUPREME_PRIORITY;
     output_lexeme->value = '(';
   }
   else if (**input_str == ')') {
-    output_lexeme->double_num = SUPREME_PRIORITY;
+    output_lexeme->priority = SUPREME_PRIORITY;
     output_lexeme->value = ')';
   }
   else if (**input_str == '-') {
     if (*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9')
     {
-      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->priority = LOW_PRIORITY;
       output_lexeme->value = '-';
     } else {
-      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->priority = LOW_PRIORITY;
       output_lexeme->value = UNAR_MINUS;
     }
   }
   else if (**input_str == '+') {
     if (*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9')
     {
-      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->priority = LOW_PRIORITY;
       output_lexeme->value = '+';
     } else {
-      output_lexeme->double_num = LOW_PRIORITY;
+      output_lexeme->priority = LOW_PRIORITY;
       output_lexeme->value = UNAR_PLUS;
     }
   }
   else if (**input_str == '/') {
-    output_lexeme->double_num = MID_PRIORITY;
+    output_lexeme->priority = MID_PRIORITY;
     output_lexeme->value = '/';
   }
   else if (**input_str == '*') {
-    output_lexeme->double_num = MID_PRIORITY;
+    output_lexeme->priority = MID_PRIORITY;
     output_lexeme->value = '*';
   }
   else if (**input_str == '^') {
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     output_lexeme->value = '^';
   }
   else {
@@ -100,39 +100,39 @@ int multi_symbol_operator(char **input_str, lexeme *output_lexeme)
   int result = SUCCESS;
   if (**input_str == 's' && *(*input_str + 1) == 'i' && *(*input_str + 2) == 'n') {
     output_lexeme->value = SIN;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 3;
   } else if (**input_str == 'c' && *(*input_str + 1) == 'o' && *(*input_str + 2) == 's') {
     output_lexeme->value = COS;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 3;
   } else if (**input_str == 't' && *(*input_str + 1) == 'a' && *(*input_str + 2) == 'n') {
     output_lexeme->value = TAN;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 3;
   } else if (**input_str == 'l' && *(*input_str + 1) == 'g') {
     output_lexeme->value = LG;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 2;
   } else if (**input_str == 'l' && *(*input_str + 1) == 'n') {
     output_lexeme->value = LN;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 2;
   } else if (**input_str == 'a' && *(*input_str + 1) == 's' && *(*input_str + 2) == 'i' && *(*input_str + 3) == 'n') {
     output_lexeme->value = ASIN;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 4;
   } else if (**input_str == 'a' && *(*input_str + 1) == 'c' && *(*input_str + 2) == 'o' && *(*input_str + 3) == 's') {
     output_lexeme->value = ACOS;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 4;
   } else if (**input_str == 'a' && *(*input_str + 1) == 't' && *(*input_str + 2) == 'a' && *(*input_str + 3) == 'n') {
     output_lexeme->value = ATAN;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 4;
   } else if (**input_str == 's' && *(*input_str + 1) == 'q' && *(*input_str + 2) == 'r' && *(*input_str + 3) == 't') {
     output_lexeme->value = SQRT;
-    output_lexeme->double_num = HIGH_PRIORITY;
+    output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 4;
   }
   else result = FAIL;
