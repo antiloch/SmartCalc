@@ -9,6 +9,7 @@
 #include "../leksem_creator.h"
 #include "../static_stack.h"
 #include "../to_postfix_notation.h"
+#include "../calculate.h"
 
 // Suite *test_memchr(void);
 Suite *test_lexeme(void);

@@ -16,7 +16,7 @@ $(BUILD_DIR)/%.o: %.c
 
 test:
 	@echo "\033[1;34mCreating tests\033[0m"
-	@$(CC) $(FLAGS) $(SRCS) $(TEST_FLAGS) -o test
+	@$(CC) $(FLAGS) $(SRCS) $(TEST_SRCS) $(TEST_FLAGS) -o test
 	@./test
 
 clean:

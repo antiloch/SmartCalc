@@ -1,14 +1,11 @@
 #include "calculate.h"
 
-int calculate(char *input)
+double calculate(char *input)
 {
     struct lexeme lexems[255];
     converter_to_lexeme(&input, lexems);
-    lexeme_print(lexems);
     to_postfix_notation(lexems);
-    lexeme_print(lexems);
-    printf("%lf\n", stack_calculations(lexems, 5));
-    return 0;
+    return stack_calculations(lexems, 0);
 }
 
 double stack_calculations(lexeme *input_lexemes, double variable)
@@ -91,7 +88,6 @@ double stack_calculations(lexeme *input_lexemes, double variable)
             }
         }
         input_lexemes = input_lexemes + 1;
-        printf("HERE, %lf\n", get_first_number(&stack));
     }
     return pop_num(&stack);
 }

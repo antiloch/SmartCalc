@@ -6,7 +6,7 @@
 #include "to_postfix_notation.h"
 #include "number_stack.h"
 
-int calculate(char *input);
+double calculate(char *input);
 double stack_calculations(struct lexeme *input_lexemes, double variable);
 
 #endif  // CALCULATE_H_
