@@ -50,5 +50,6 @@ void add_number(char **input_str, struct lexeme *output_lexeme);
 void read_number(char **input_str, int *int_number, int *int_float);
 void write_number(struct lexeme *output_lexeme, int int_number, int int_float);
 int converter_str_to_int(char **input_str);
+void lexemes_initiate(struct lexeme *output_lexeme);
 
 #endif  // LEXEME_CREATOR_H_
