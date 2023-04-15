@@ -5,7 +5,6 @@ double calculate(char *input)
     struct lexeme lexems[255];
     converter_to_lexeme(&input, lexems);
     to_postfix_notation(lexems);
-    lexeme_print(lexems);
     double result = stack_calculations(lexems, 0);
     return result;
 }

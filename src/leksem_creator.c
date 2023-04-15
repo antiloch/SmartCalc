@@ -1,7 +1,6 @@
 #include "leksem_creator.h"
 
 int converter_to_lexeme(char **input_str, struct lexeme *output_lexemes) {
-  lexemes_initiate(output_lexemes);
   int result = SUCCESS;
   while (**input_str != '\0' && result != FAIL) {
     if (**input_str == ' ') *input_str = *input_str + 1;

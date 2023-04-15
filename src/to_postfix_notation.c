@@ -5,6 +5,7 @@ int to_postfix_notation(lexeme *input_lexemes)
 {
     int result = SUCCESS;
     struct lexeme output_lexemes[255];
+    lexemes_initiate(output_lexemes);
     result = create_postfix_lexeme(input_lexemes, output_lexemes);
     change_input_to_output(input_lexemes, output_lexemes);
     return result;

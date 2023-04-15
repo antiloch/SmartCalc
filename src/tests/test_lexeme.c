@@ -10,7 +10,7 @@ END_TEST
 START_TEST(simple_calculate2) {
   char *test = "10+800+90+78+83+93.3+211921.42";
   double result = calculate(test);
-  ck_assert_double_eq_tol(result, 213076.72, 1e-6);
+  ck_assert_double_eq_tol(result, 213075.72, 1e-6);
 }
 END_TEST
 
