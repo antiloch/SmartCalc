@@ -3,9 +3,13 @@
 double calculate(char *input)
 {
     struct lexeme lexems[255];
-    converter_to_lexeme(&input, lexems);
-    to_postfix_notation(lexems);
-    double result = stack_calculations(lexems, 0);
+    double result = 0./0.;
+    int error = converter_to_lexeme(&input, lexems);
+    if (error != FAIL) {
+        error = to_postfix_notation(lexems);
+        result = stack_calculations(lexems, 0);
+        if (error == FAIL) result = 0./0.;
+    }
     return result;
 }
 
