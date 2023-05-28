@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_dot, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_open_braket, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_close_braket, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_lg, SIGNAL(clicked()), this, SLOT(expression()));
+    connect(ui->pushButton_ln, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_log, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_sqrt, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_power, SIGNAL(clicked()), this, SLOT(expression()));
@@ -53,6 +53,7 @@ void MainWindow::expression()
 void MainWindow::on_pushButton_clean_clicked()
 {
     ui->label_main->setText("");
+    ui->label_result->setText("");
 }
 
 

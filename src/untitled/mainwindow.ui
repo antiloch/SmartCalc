@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>817</width>
-    <height>563</height>
+    <width>696</width>
+    <height>542</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -57,7 +57,7 @@
      padding: 6px;</string>
       </property>
       <property name="text">
-       <string>arctan</string>
+       <string>atan</string>
       </property>
      </widget>
     </item>
@@ -430,7 +430,7 @@
      </widget>
     </item>
     <item row="3" column="1">
-     <widget class="QPushButton" name="pushButton_lg">
+     <widget class="QPushButton" name="pushButton_ln">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
         <horstretch>0</horstretch>
@@ -448,7 +448,7 @@
      padding: 6px;</string>
       </property>
       <property name="text">
-       <string>lg</string>
+       <string>ln</string>
       </property>
      </widget>
     </item>
@@ -563,7 +563,7 @@
      padding: 6px;</string>
       </property>
       <property name="text">
-       <string>arccos</string>
+       <string>acos</string>
       </property>
      </widget>
     </item>
@@ -632,7 +632,7 @@
      padding: 6px;</string>
       </property>
       <property name="text">
-       <string>arcsin</string>
+       <string>asin</string>
       </property>
      </widget>
     </item>
@@ -753,7 +753,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>817</width>
+     <width>696</width>
      <height>22</height>
     </rect>
    </property>
