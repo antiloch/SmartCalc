@@ -13,7 +13,6 @@ void push(static_stack *stack, lexeme element)
 
 struct lexeme pop(static_stack *stack)
 {
-    // if (stack->size == 0) exit(FAIL);
     stack->size--;
     return stack->data[stack->size];
 }
