@@ -16,6 +16,9 @@ START_TEST(error_extra_brackets) {
   char *test2 = "((1)";
   status = calculate(test2, &result);
   ck_assert_int_eq(status, FAIL);
+  char *test3 = "((0";
+  status = calculate(test3, &result);
+  ck_assert_int_eq(status, FAIL);
 }
 END_TEST
 
