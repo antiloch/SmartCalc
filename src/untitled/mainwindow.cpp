@@ -65,14 +65,18 @@ void MainWindow::on_pushButton_backspace_clicked()
 
 void MainWindow::on_pushButton_equal_clicked()
 {
-    if (ui->label_main->text().size() > 0) {
+//    if (ui->label_main->text().size() > 0) {
         std::string s =ui->label_main->text().toStdString();
         char* c_strs = const_cast<char*>(s.c_str());
-        double result = calculate(c_strs);
+        double result = 0;
+        int status = calculate(c_strs, &result);
         QString result_str = QString::number(result);
         ui->label_result->setText(result_str);
-    } else {
-        ui->label_result->setText("Empty");
-    }
+        if (status == 0) {
+            ui->label_result->setText("Error");
+        }
+//    } else {
+//        ui->label_result->setText("Empty");
+//    }
 }
 
