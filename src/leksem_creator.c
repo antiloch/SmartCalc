@@ -141,12 +141,12 @@ int multi_symbol_operator(char **input_str, lexeme *output_lexeme)
 
 void add_number(char **input_str, struct lexeme *output_lexeme)
 {
-  int int_number = 0, int_float = 0;
+  double int_number = 0, int_float = 0;
   read_number(input_str, &int_number, &int_float);
   write_number(output_lexeme, int_number, int_float);
 }
 
-void read_number(char **input_str, int *int_number, int *int_float) {
+void read_number(char **input_str, double *int_number, double *int_float) {
   *int_number = converter_str_to_int(input_str), *int_float = 0;
   if (**input_str == '.') {
     *input_str = *input_str + 1;
@@ -154,7 +154,7 @@ void read_number(char **input_str, int *int_number, int *int_float) {
   }
 }
 
-void write_number(lexeme *output_lexeme, int int_number, int int_float) {
+void write_number(lexeme *output_lexeme, double int_number, double int_float) {
   output_lexeme->value = int_number;
   output_lexeme->value_type = INT_NUMBER;
   if (int_float != 0) {
@@ -164,11 +164,11 @@ void write_number(lexeme *output_lexeme, int int_number, int int_float) {
   }
 }
 
-int converter_str_to_int(char **input_str) {
+double converter_str_to_int(char **input_str) {
   char *str_number = calloc(255, sizeof(char));
   strncpy(str_number, *input_str, strspn(*input_str, "0123456789"));
   *input_str = *input_str + strspn(*input_str, "0123456789");
-  int result = atoi(str_number);
+  double result = atof(str_number);
   free(str_number);
   return result;
 }

@@ -17,12 +17,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_7, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_8, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_9, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_sin, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_cos, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_tan, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_arcsin, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_arccos, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_arctan, SIGNAL(clicked()), this, SLOT(expression()));
+    connect(ui->pushButton_sin, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_cos, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_tan, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_arcsin, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_arccos, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_arctan, SIGNAL(clicked()), this, SLOT(expression_dif()));
     connect(ui->pushButton_plus, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_minus, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_div, SIGNAL(clicked()), this, SLOT(expression()));
@@ -30,9 +30,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_dot, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_open_braket, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_close_braket, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_ln, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_log, SIGNAL(clicked()), this, SLOT(expression()));
-    connect(ui->pushButton_sqrt, SIGNAL(clicked()), this, SLOT(expression()));
+    connect(ui->pushButton_ln, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_log, SIGNAL(clicked()), this, SLOT(expression_dif()));
+    connect(ui->pushButton_sqrt, SIGNAL(clicked()), this, SLOT(expression_dif()));
     connect(ui->pushButton_power, SIGNAL(clicked()), this, SLOT(expression()));
 }
 
@@ -48,6 +48,17 @@ void MainWindow::expression()
     QString label_expression = (ui->label_main->text() + button->text());
 
     ui->label_main->setText(label_expression);
+    ui->label_result->setText("");
+}
+
+void MainWindow::expression_dif()
+{
+    QPushButton *button = (QPushButton *)sender();
+
+    QString label_expression = (ui->label_main->text() + button->text() + "(");
+
+    ui->label_main->setText(label_expression);
+    ui->label_result->setText("");
 }
 
 void MainWindow::on_pushButton_clean_clicked()
@@ -61,6 +72,7 @@ void MainWindow::on_pushButton_backspace_clicked()
 {
     QString label_expression = (ui->label_main->text());
     ui->label_main->setText(label_expression.left(label_expression.size() - 1));
+    ui->label_result->setText("");
 }
 
 
@@ -71,7 +83,7 @@ void MainWindow::on_pushButton_equal_clicked()
         char* c_strs = const_cast<char*>(s.c_str());
         double result = 0;
         int status = calculate(c_strs, &result);
-        QString result_str = QString::number(result);
+        QString result_str = QString::number(result, 'g', 7);
         ui->label_result->setText(result_str);
         if (status == 0) {
             ui->label_result->setText("Error");

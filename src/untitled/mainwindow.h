@@ -22,6 +22,8 @@ public:
 private slots:
     void expression();
 
+    void expression_dif();
+
     void on_pushButton_clean_clicked();
 
     void on_pushButton_backspace_clicked();

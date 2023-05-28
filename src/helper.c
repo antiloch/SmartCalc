@@ -4,7 +4,7 @@ void lexeme_print(lexeme *lexemes)
 {
     for (struct lexeme lexem = *lexemes; lexem.value_type != END; lexemes++, lexem = *lexemes) {
         if (lexem.value_type == INT_NUMBER)
-            printf(" [%d] ", lexem.value);
+            printf(" [%lf] ", lexem.value);
         else if (lexem.value_type == FLOAT_NUMBER)
             printf(" [%lf] ", lexem.double_num);
         else if (lexem.value_type == OPERATOR) {
@@ -17,7 +17,7 @@ void lexeme_print(lexeme *lexemes)
             else if (lexem.value == ACOS) printf(" [ACOS] ");
             else if (lexem.value == ATAN) printf(" [ATAN] ");
             else if (lexem.value == SQRT) printf(" [SQRT] ");
-            else printf(" [%c] ", lexem.value);
+            else printf(" [%c] ", (int)lexem.value);
         }
         else if (lexem.value_type == VARIABLE) {
             printf(" [x] ");
