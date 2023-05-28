@@ -17,7 +17,7 @@ int create_postfix_lexeme(lexeme *input_lexemes, lexeme *output_lexemes)
     struct static_stack stack;
     initiate(&stack);
     result = while_lexemes_to_read(input_lexemes, &output_lexemes, &stack);
-    result = pops_remain_operators(&output_lexemes, &stack);
+    if (result != FAIL) result = pops_remain_operators(&output_lexemes, &stack);
     return result;
 }
 
@@ -49,7 +49,7 @@ void check_prefix_open_bracket(lexeme *input_lexemes, static_stack *stack)
 int check_close_braket(lexeme **output_lexemes, static_stack *stack)
 {
     int result = SUCCESS;
-    while (get_top_lexeme(stack).value != '(' && get_top_lexeme(stack).value_type == OPERATOR && result != FAIL)
+    while (get_top_lexeme(stack).value != '(' && result != FAIL)
     {
         if (stack->size == 0) result = FAIL;
         else {

@@ -3,7 +3,7 @@
 int main(void) {
   int failed = 0;
   Suite *s21_string_test[] = {
-      test_lexeme(), 0};
+      test_calculations(), test_errors(), 0};
 
   for (int i = 0; s21_string_test[i] != 0; i++) {
     SRunner *sr = srunner_create(s21_string_test[i]);
@@ -21,7 +21,7 @@ int main(void) {
     srunner_free(sr);
   }
   if (failed > 0)
-    printf("\n\033[1;41m FAILED: %d \033[0m\n", failed);
+    printf("\n\033[1;41m TOTAL FAILED: %d \033[0m\n", failed);
   else
     printf("\n\033[1;42m ALL TESTS NO FAILS \033[0m\n");
 

@@ -1,23 +1,25 @@
 #include "calculate.h"
 
-double calculate(char *input)
+int calculate(char *input, double *result)
 {
     struct lexeme lexems[255];
-    double result = 0./0.;
-    int error = converter_to_lexeme(&input, lexems);
-    if (error != FAIL) {
-        error = to_postfix_notation(lexems);
-        result = stack_calculations(lexems, 0);
-        if (error == FAIL) result = 0./0.;
+    int status = SUCCESS;
+    status = converter_to_lexeme(&input, lexems);
+    if (status != FAIL) {
+        status = to_postfix_notation(lexems);
+        if (status != FAIL) {
+            status = stack_calculations(lexems, 0, result);
+        }
     }
-    return result;
+    return status;
 }
 
-double stack_calculations(lexeme *input_lexemes, double variable)
+int stack_calculations(lexeme *input_lexemes, double variable, double *result)
 {
-    double result = 0;
+    int status = SUCCESS;
     struct number_stack stack;
     initiate_num(&stack);
+    if (input_lexemes->value_type == END) status = FAIL;
     while (input_lexemes->value_type != END)
     {
         if (input_lexemes->value_type == INT_NUMBER) push_num(&stack, input_lexemes->value);
@@ -25,74 +27,102 @@ double stack_calculations(lexeme *input_lexemes, double variable)
         else if (input_lexemes->value_type == VARIABLE) push_num(&stack, variable);
         else if (input_lexemes->value_type == OPERATOR) {
             if (input_lexemes->value == '+') {
-                result = pop_num(&stack) + pop_num(&stack);
-                push_num(&stack, result);
+                if (stack.size < 2) status = FAIL;
+                *result = pop_num(&stack) + pop_num(&stack);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == '-') {
-                result = pop_num(&stack);
-                result = pop_num(&stack) - result;
-                push_num(&stack, result);
+                if (stack.size < 2) status = FAIL;
+                *result = pop_num(&stack);
+                *result = pop_num(&stack) - *result;
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == '*') {
-                result = pop_num(&stack) * pop_num(&stack);
-                push_num(&stack, result);
+                if (stack.size < 2) status = FAIL;
+                *result = pop_num(&stack) * pop_num(&stack);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == '/') {
-                result = pop_num(&stack);
-                result = pop_num(&stack) / result;
-                push_num(&stack, result);
+                if (stack.size < 2) status = FAIL;
+                *result = pop_num(&stack);
+                if (*result == 0) status = FAIL;
+                *result = pop_num(&stack) / *result;
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == '^') {
-                result = pop_num(&stack);
-                result = pow(pop_num(&stack), result);
-                push_num(&stack, result);
+                if (stack.size < 2) status = FAIL;
+                *result = pop_num(&stack);
+                *result = pow(pop_num(&stack), *result);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == LN) {
-                result = log(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = pop_num(&stack);
+                if (*result <= 0) status = FAIL;
+                *result = log(*result);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == LG) {
-                result = log10(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = pop_num(&stack);
+                if (*result <= 0) status = FAIL;
+                *result = log10(*result);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == SIN) {
-                result = sin(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = sin(pop_num(&stack));
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == COS) {
-                result = cos(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = cos(pop_num(&stack));
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == TAN) {
-                result = tan(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = tan(pop_num(&stack));
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == ASIN) {
-                result = asin(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = pop_num(&stack);
+                if (*result < -1 || *result > 1) status = FAIL;
+                *result = asin(*result);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == ACOS) {
-                result = acos(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = pop_num(&stack);
+                if (*result < -1 || *result > 1) status = FAIL;
+                *result = acos(*result);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == ATAN) {
-                result = atan(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = atan(pop_num(&stack));
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == SQRT) {
-                result = sqrt(pop_num(&stack));
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = pop_num(&stack);
+                if (*result < 0) status = FAIL;
+                *result = sqrt(*result);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == UNAR_MINUS) {
-                result = -pop_num(&stack);
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = -pop_num(&stack);
+                push_num(&stack, *result);
             }
             else if (input_lexemes->value == UNAR_PLUS) {
-                result = pop_num(&stack);
-                push_num(&stack, result);
+                if (stack.size < 1) status = FAIL;
+                *result = pop_num(&stack);
+                push_num(&stack, *result);
             }
         }
         input_lexemes = input_lexemes + 1;
     }
-    return pop_num(&stack);
+    *result = pop_num(&stack);
+    return status;
 }

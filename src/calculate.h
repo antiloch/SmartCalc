@@ -8,8 +8,8 @@ extern "C" {
 #include "to_postfix_notation.h"
 #include "number_stack.h"
 
-double calculate(char *input);
-double stack_calculations(struct lexeme *input_lexemes, double variable);
+int calculate(char *input, double *result);
+int stack_calculations(struct lexeme *input_lexemes, double variable, double *result);
 
 #ifdef __cplusplus
 }

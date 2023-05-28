@@ -11,7 +11,7 @@
 #include "../to_postfix_notation.h"
 #include "../calculate.h"
 
-// Suite *test_memchr(void);
-Suite *test_lexeme(void);
+Suite *test_calculations(void);
+Suite *test_errors(void);
 
 #endif  // SRC_TESTS_MAIN_H
