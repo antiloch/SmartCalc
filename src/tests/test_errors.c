@@ -13,6 +13,9 @@ START_TEST(error_extra_brackets) {
   double result = 0;
   int status = calculate(test, &result);
   ck_assert_int_eq(status, FAIL);
+  char *test2 = "((1)";
+  status = calculate(test2, &result);
+  ck_assert_int_eq(status, FAIL);
 }
 END_TEST
 
@@ -48,7 +51,7 @@ START_TEST(error_log_less_zero) {
   double result = 0;
   int status = calculate(test, &result);
   ck_assert_int_eq(status, FAIL);
-  char *test2 = "log(-1)";
+  char *test2 = "lg(-1)";
   status = calculate(test2, &result);
   ck_assert_int_eq(status, FAIL);
 }
@@ -59,7 +62,7 @@ START_TEST(error_no_such_function) {
   double result = 0;
   int status = calculate(test, &result);
   ck_assert_int_eq(status, FAIL);
-  char *test2 = "lug(10)";
+  char *test2 = "lf(10)";
   status = calculate(test2, &result);
   ck_assert_int_eq(status, FAIL);
 }
