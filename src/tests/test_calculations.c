@@ -75,11 +75,15 @@ START_TEST(arctan) {
 }
 END_TEST
 
-START_TEST(nan_calculations) {
-  char *test = "0";
+START_TEST(dificult_calculation) {
+  char *test = "cos(ln(45)-12)";
   double result = 0;
   int status = calculate(test, &result);
-  ck_assert_double_eq_tol(result, 0, 1e-6);
+  ck_assert_double_eq_tol(result, -0.3328797, 1e-6);
+  ck_assert_int_eq(status, SUCCESS);
+  char *test2 = "lg(sin(8*16)/sqrt(256))";
+  status = calculate(test2, &result);
+  ck_assert_double_eq_tol(result, -1.34616200, 1e-6);
   ck_assert_int_eq(status, SUCCESS);
 }
 END_TEST
@@ -96,7 +100,7 @@ Suite *test_calculations(void) {
   tcase_add_test(tc, arcsin);
   tcase_add_test(tc, arccos);
   tcase_add_test(tc, arctan);
-  tcase_add_test(tc, nan_calculations);
+  tcase_add_test(tc, dificult_calculation);
 
   suite_add_tcase(s, tc);
   return s;

@@ -609,7 +609,7 @@
      padding: 6px;</string>
       </property>
       <property name="text">
-       <string>log</string>
+       <string>lg</string>
       </property>
      </widget>
     </item>

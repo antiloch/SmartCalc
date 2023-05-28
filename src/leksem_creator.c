@@ -56,7 +56,7 @@ int one_symbol_operator(char **input_str, lexeme *output_lexeme)
     output_lexeme->value = ')';
   }
   else if (**input_str == '-') {
-    if (*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9')
+    if ((*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9') || *(*input_str - 1) == ')')
     {
       output_lexeme->priority = LOW_PRIORITY;
       output_lexeme->value = '-';
