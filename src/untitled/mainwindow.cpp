@@ -34,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_log, SIGNAL(clicked()), this, SLOT(expression_dif()));
     connect(ui->pushButton_sqrt, SIGNAL(clicked()), this, SLOT(expression_dif()));
     connect(ui->pushButton_power, SIGNAL(clicked()), this, SLOT(expression()));
+    connect(ui->pushButton_mod, SIGNAL(clicked()), this, SLOT(expression()));
 }
 
 MainWindow::~MainWindow()

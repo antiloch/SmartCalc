@@ -42,6 +42,7 @@ int stack_calculations(lexeme *input_lexemes, double variable, double *result)
             handle_sqrt(input_lexemes, &status, &stack, result);
             handle_unar_minus(input_lexemes, &status, &stack, result);
             handle_unar_plus(input_lexemes, &status, &stack, result);
+            handle_mod(input_lexemes, &status, &stack, result);
         }
         input_lexemes = input_lexemes + 1;
     }
@@ -203,6 +204,17 @@ void handle_unar_plus(lexeme *input_lexemes, int *status, number_stack *stack, d
     if (input_lexemes->value == UNAR_PLUS) {
         if (stack->size < 1) *status = FAIL;
         *result = pop_num(stack);
+        push_num(stack, *result);
+    }
+}
+
+void handle_mod(lexeme *input_lexemes, int *status, number_stack *stack, double *result)
+{
+    if (input_lexemes->value == MOD) {
+        if (stack->size < 2) *status = FAIL;
+        *result = pop_num(stack);
+        if (*result == 0) *status = FAIL;
+        *result = fmod(pop_num(stack), *result);
         push_num(stack, *result);
     }
 }

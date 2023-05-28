@@ -27,6 +27,7 @@
 #define SQRT 3000
 #define UNAR_MINUS 4000
 #define UNAR_PLUS 4001
+#define MOD 5000
 
 #define LOW_PRIORITY 0
 #define MID_PRIORITY 1

@@ -17,6 +17,7 @@ void lexeme_print(lexeme *lexemes)
             else if (lexem.value == ACOS) printf(" [ACOS] ");
             else if (lexem.value == ATAN) printf(" [ATAN] ");
             else if (lexem.value == SQRT) printf(" [SQRT] ");
+            else if (lexem.value == MOD) printf(" [MOD] ");
             else printf(" [%c] ", (int)lexem.value);
         }
         else if (lexem.value_type == VARIABLE) {

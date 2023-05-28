@@ -66,7 +66,7 @@ int one_symbol_operator(char **input_str, lexeme *output_lexeme)
     }
   }
   else if (**input_str == '+') {
-    if (*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9')
+    if ((*(*input_str - 1) >= '0' && *(*input_str - 1) <= '9') || *(*input_str - 1) == ')')
     {
       output_lexeme->priority = LOW_PRIORITY;
       output_lexeme->value = '+';
@@ -134,6 +134,10 @@ int multi_symbol_operator(char **input_str, lexeme *output_lexeme)
     output_lexeme->value = SQRT;
     output_lexeme->priority = HIGH_PRIORITY;
     *input_str = *input_str + 4;
+  } else if (**input_str == 'm' && *(*input_str + 1) == 'o' && *(*input_str + 2) == 'd') {
+    output_lexeme->value = MOD;
+    output_lexeme->priority = MID_PRIORITY;
+    *input_str = *input_str + 3;
   }
   else result = FAIL;
   return result;

@@ -26,6 +26,7 @@ void handle_atan(struct lexeme *input_lexemes, int *status, struct number_stack 
 void handle_sqrt(struct lexeme *input_lexemes, int *status, struct number_stack *stack, double *result);
 void handle_unar_minus(struct lexeme *input_lexemes, int *status, struct number_stack *stack, double *result);
 void handle_unar_plus(struct lexeme *input_lexemes, int *status, struct number_stack *stack, double *result);
+void handle_mod(struct lexeme *input_lexemes, int *status, struct number_stack *stack, double *result);
 
 #ifdef __cplusplus
 }
