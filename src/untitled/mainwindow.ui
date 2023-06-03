@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>SmartCalc</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout_4">
@@ -790,8 +790,32 @@
      <height>22</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Инструменты</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="action_2"/>
+    <addaction name="action_3"/>
+   </widget>
+   <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="action">
+   <property name="text">
+    <string>Калькулятор</string>
+   </property>
+  </action>
+  <action name="action_2">
+   <property name="text">
+    <string>Графопостроитель</string>
+   </property>
+  </action>
+  <action name="action_3">
+   <property name="text">
+    <string>Кредитный калькулятор</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
