@@ -80,7 +80,7 @@ START_TEST(error_blank_request) {
 END_TEST
 
 START_TEST(error_less_numbers) {
-  char *test = "2*";
+  char *test = "2+";
   double result = 0;
   int status = calculate(test, &result);
   ck_assert_int_eq(status, FAIL);
