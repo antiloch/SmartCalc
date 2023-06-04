@@ -14,6 +14,7 @@ SOURCES += \
     ../number_stack.c \
     ../static_stack.c \
     ../to_postfix_notation.c \
+    graph.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -23,9 +24,11 @@ HEADERS += \
     ../number_stack.h \
     ../static_stack.h \
     ../to_postfix_notation.h \
+    graph.h \
     mainwindow.h
 
 FORMS += \
+    graph.ui \
     mainwindow.ui
 
 TRANSLATIONS += \

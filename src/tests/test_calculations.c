@@ -15,6 +15,10 @@ START_TEST(multi_sum) {
   int status = calculate(test, &result);
   ck_assert_double_eq_tol(result, 213075.72, 1e-6);
   ck_assert_int_eq(status, SUCCESS);
+  char *test2 = "1.23*2.123+8.9328+123.238";
+  status = calculate(test2, &result);
+  ck_assert_double_eq_tol(result, 134.78209, 1e-6);
+  ck_assert_int_eq(status, SUCCESS);
 }
 END_TEST
 

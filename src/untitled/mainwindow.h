@@ -30,6 +30,8 @@ private slots:
 
     void on_pushButton_equal_clicked();
 
+    void on_graph_triggered();
+
 private:
     Ui::MainWindow *ui;
 };

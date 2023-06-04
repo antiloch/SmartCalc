@@ -1,20 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Graph</class>
+ <widget class="QDialog" name="Graph">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>748</width>
-    <height>550</height>
+    <width>765</width>
+    <height>907</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>SmartCalc</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>410</y>
+     <width>721</width>
+     <height>479</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_4" rowstretch="0,0,0,0,0,0">
     <item row="5" column="7">
      <widget class="QPushButton" name="pushButton_div">
       <property name="sizePolicy">
@@ -144,29 +152,6 @@
       </property>
       <property name="text">
        <string>ln</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2">
-     <widget class="QPushButton" name="pushButton_clean">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">
-     background-color: rgb(138, 203, 192);
-     border-style: outset;
-     border-width: 5px;
-     border-radius: 20px;
-     border-color: beige;
-     font: bold 40px;
-     padding: 6px;</string>
-      </property>
-      <property name="text">
-       <string>clean</string>
       </property>
      </widget>
     </item>
@@ -738,7 +723,53 @@
       </property>
      </spacer>
     </item>
-    <item row="0" column="0" colspan="4">
+    <item row="1" column="4" colspan="2">
+     <widget class="QPushButton" name="pushButton_x">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+     background-color: rgb(138, 203, 192);
+     border-style: outset;
+     border-width: 5px;
+     border-radius: 20px;
+     border-color: beige;
+     font: bold 40px;
+     padding: 6px;</string>
+      </property>
+      <property name="text">
+       <string>x</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="2">
+     <widget class="QPushButton" name="pushButton_clean">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+     background-color: rgb(138, 203, 192);
+     border-style: outset;
+     border-width: 5px;
+     border-radius: 20px;
+     border-color: beige;
+     font: bold 40px;
+     padding: 6px;</string>
+      </property>
+      <property name="text">
+       <string>clean</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="8">
      <widget class="QLabel" name="label_main">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -757,25 +788,6 @@
       </property>
       <property name="text">
        <string/>
-      </property>
-     </widget>
-    </item>
-    <item row="0" column="4" colspan="4">
-     <widget class="QLabel" name="label_result">
-      <property name="styleSheet">
-       <string notr="true">     background-color: rgb(138, 203, 192);
-     border-style: outset;
-     border-width: 5px;
-     border-radius: 20px;
-     border-color: beige;
-     font: bold 40px;
-     padding: 6px;</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
       </property>
      </widget>
     </item>
@@ -800,7 +812,44 @@
    </widget>
    <addaction name="menu"/>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>3</width>
+     <height>27</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_main_2">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>721</width>
+     <height>381</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">     background-color: rgb(138, 203, 192);
+     border-style: outset;
+     border-width: 5px;
+     border-radius: 20px;
+     border-color: beige;
+     font: bold 40px;
+     padding: 6px;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <action name="action">
    <property name="text">
     <string>Калькулятор</string>

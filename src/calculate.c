@@ -47,6 +47,7 @@ int stack_calculations(lexeme *input_lexemes, double variable, double *result)
         input_lexemes = input_lexemes + 1;
     }
     *result = pop_num(&stack);
+    if (stack.size > 0) status = FAIL;
     return status;
 }
 

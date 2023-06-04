@@ -87,6 +87,15 @@ START_TEST(error_less_numbers) {
   char *test2 = "mod4";
   status = calculate(test2, &result);
   ck_assert_int_eq(status, FAIL);
+  char *test3 = "7()8";
+  status = calculate(test3, &result);
+  ck_assert_int_eq(status, FAIL);
+  char *test4 = "7()";
+  status = calculate(test4, &result);
+  ck_assert_int_eq(status, FAIL);
+  char *test5 = "sqrt(2)8";
+  status = calculate(test5, &result);
+  ck_assert_int_eq(status, FAIL);
 }
 END_TEST
 

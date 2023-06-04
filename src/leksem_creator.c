@@ -52,6 +52,7 @@ int one_symbol_operator(char **input_str, lexeme *output_lexeme)
     output_lexeme->value = '(';
   }
   else if (**input_str == ')') {
+    if (*(*input_str - 1) == '(') result = FAIL;
     output_lexeme->priority = SUPREME_PRIORITY;
     output_lexeme->value = ')';
   }

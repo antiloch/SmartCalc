@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "graph.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -92,5 +93,13 @@ void MainWindow::on_pushButton_equal_clicked()
 //    } else {
 //        ui->label_result->setText("Empty");
 //    }
+}
+
+
+void MainWindow::on_graph_triggered()
+{
+    Graph window;
+    window.setModal(true);
+    window.exec();
 }
 
