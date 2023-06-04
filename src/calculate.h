@@ -8,7 +8,7 @@ extern "C" {
 #include "to_postfix_notation.h"
 #include "number_stack.h"
 
-int calculate(char *input, double *result);
+int calculate(char *input, double *result, double variable);
 int stack_calculations(struct lexeme *input_lexemes, double variable, double *result);
 void handle_sum(struct lexeme *input_lexemes, int *status, struct number_stack *stack, double *result);
 void handle_sub(struct lexeme *input_lexemes, int *status, struct number_stack *stack, double *result);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>748</width>
-    <height>550</height>
+    <width>775</width>
+    <height>555</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,6 +22,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -86,6 +98,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -108,6 +132,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -178,6 +214,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -200,6 +248,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -224,6 +284,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -242,10 +314,22 @@
     <item row="2" column="6">
      <widget class="QPushButton" name="pushButton_9">
       <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-        <horstretch>0</horstretch>
+       <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+        <horstretch>100</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -285,29 +369,6 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="6" colspan="2">
-     <widget class="QPushButton" name="pushButton_equal">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">
-     background-color: rgb(138, 203, 192);
-     border-style: outset;
-     border-width: 5px;
-     border-radius: 20px;
-     border-color: beige;
-     font: bold 40px;
-     padding: 6px;</string>
-      </property>
-      <property name="text">
-       <string>=</string>
-      </property>
-     </widget>
-    </item>
     <item row="5" column="6">
      <widget class="QPushButton" name="pushButton_power">
       <property name="sizePolicy">
@@ -315,6 +376,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -408,6 +481,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -430,6 +515,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -499,6 +596,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -592,6 +701,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -614,6 +735,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -638,6 +771,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -661,6 +806,18 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">
      background-color: rgb(138, 203, 192);
@@ -683,6 +840,18 @@
         <horstretch>0</horstretch>
         <verstretch>0</verstretch>
        </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
       </property>
       <property name="styleSheet">
        <string notr="true">
@@ -746,6 +915,12 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="maximumSize">
+       <size>
+        <width>500</width>
+        <height>100</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">     background-color: rgb(138, 203, 192);
      border-style: outset;
@@ -779,6 +954,96 @@
       </property>
      </widget>
     </item>
+    <item row="1" column="7">
+     <widget class="QPushButton" name="pushButton_equal">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+     background-color: rgb(138, 203, 192);
+     border-style: outset;
+     border-width: 5px;
+     border-radius: 20px;
+     border-color: beige;
+     font: bold 40px;
+     padding: 6px;</string>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5" colspan="2">
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>160</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+     background-color: rgb(138, 203, 192);
+     border-style: outset;
+     border-width: 5px;
+     border-radius: 20px;
+     border-color: beige;
+     font: bold 40px;
+     padding: 6px;</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QPushButton" name="pushButton_x">
+      <property name="minimumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>70</width>
+        <height>70</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+     background-color: rgb(138, 203, 192);
+     border-style: outset;
+     border-width: 5px;
+     border-radius: 20px;
+     border-color: beige;
+     font: bold 40px;
+     padding: 6px;</string>
+      </property>
+      <property name="text">
+       <string>x</string>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -786,7 +1051,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>748</width>
+     <width>775</width>
      <height>22</height>
     </rect>
    </property>
@@ -794,28 +1059,10 @@
     <property name="title">
      <string>Инструменты</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="graph"/>
-    <addaction name="action_3"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="action">
-   <property name="text">
-    <string>Калькулятор</string>
-   </property>
-  </action>
-  <action name="graph">
-   <property name="text">
-    <string>Графопостроитель</string>
-   </property>
-  </action>
-  <action name="action_3">
-   <property name="text">
-    <string>Кредитный калькулятор</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

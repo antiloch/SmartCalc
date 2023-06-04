@@ -1,6 +1,6 @@
 #include "calculate.h"
 
-int calculate(char *input, double *result)
+int calculate(char *input, double *result, double variable)
 {
     struct lexeme lexems[255];
     int status = SUCCESS;
@@ -8,7 +8,7 @@ int calculate(char *input, double *result)
     if (status != FAIL) {
         status = to_postfix_notation(lexems);
         if (status != FAIL) {
-            status = stack_calculations(lexems, 0, result);
+            status = stack_calculations(lexems, variable, result);
         }
     }
     return status;

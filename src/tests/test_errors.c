@@ -3,7 +3,7 @@
 START_TEST(error_no_numbers) {
   char *test = "((+))";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -11,13 +11,13 @@ END_TEST
 START_TEST(error_extra_brackets) {
   char *test = "((1+2)))";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test2 = "((1)";
-  status = calculate(test2, &result);
+  status = calculate(test2, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test3 = "((0";
-  status = calculate(test3, &result);
+  status = calculate(test3, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -25,7 +25,7 @@ END_TEST
 START_TEST(error_sqrt_less_zero) {
   char *test = "sqrt(-1)";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -33,7 +33,7 @@ END_TEST
 START_TEST(error_div_zero) {
   char *test = "1/0";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -41,10 +41,10 @@ END_TEST
 START_TEST(error_arc_more_than_one) {
   char *test = "asin(2)";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test2 = "acos(2)";
-  status = calculate(test2, &result);
+  status = calculate(test2, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -52,10 +52,10 @@ END_TEST
 START_TEST(error_log_less_zero) {
   char *test = "ln(-1)";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test2 = "lg(-1)";
-  status = calculate(test2, &result);
+  status = calculate(test2, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -63,10 +63,10 @@ END_TEST
 START_TEST(error_no_such_function) {
   char *test = "lypsafkjnsgljb";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test2 = "lf(10)";
-  status = calculate(test2, &result);
+  status = calculate(test2, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -74,7 +74,7 @@ END_TEST
 START_TEST(error_blank_request) {
   char *test = "";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST
@@ -82,19 +82,19 @@ END_TEST
 START_TEST(error_less_numbers) {
   char *test = "2+";
   double result = 0;
-  int status = calculate(test, &result);
+  int status = calculate(test, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test2 = "mod4";
-  status = calculate(test2, &result);
+  status = calculate(test2, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test3 = "7()8";
-  status = calculate(test3, &result);
+  status = calculate(test3, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test4 = "7()";
-  status = calculate(test4, &result);
+  status = calculate(test4, &result, 0);
   ck_assert_int_eq(status, FAIL);
   char *test5 = "sqrt(2)8";
-  status = calculate(test5, &result);
+  status = calculate(test5, &result, 0);
   ck_assert_int_eq(status, FAIL);
 }
 END_TEST

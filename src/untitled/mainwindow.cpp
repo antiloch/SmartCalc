@@ -36,6 +36,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_sqrt, SIGNAL(clicked()), this, SLOT(expression_dif()));
     connect(ui->pushButton_power, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_mod, SIGNAL(clicked()), this, SLOT(expression()));
+    connect(ui->pushButton_x, SIGNAL(clicked()), this, SLOT(expression()));
 }
 
 MainWindow::~MainWindow()
@@ -80,19 +81,19 @@ void MainWindow::on_pushButton_backspace_clicked()
 
 void MainWindow::on_pushButton_equal_clicked()
 {
-//    if (ui->label_main->text().size() > 0) {
         std::string s =ui->label_main->text().toStdString();
         char* c_strs = const_cast<char*>(s.c_str());
         double result = 0;
-        int status = calculate(c_strs, &result);
+        double var = 0;
+        bool ok = true;
+        if (ui->lineEdit->text().toDouble(&ok)) var = ui->lineEdit->text().toDouble(&ok);
+        int status = calculate(c_strs, &result, var);
+//        if (ui->lineEdit->text().toDouble()) status = 0;
         QString result_str = QString::number(result, 'g', 7);
         ui->label_result->setText(result_str);
-        if (status == 0) {
+        if (status == 0 || !ok) {
             ui->label_result->setText("Error");
         }
-//    } else {
-//        ui->label_result->setText("Empty");
-//    }
 }
 
 
