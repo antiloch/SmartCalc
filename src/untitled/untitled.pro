@@ -1,4 +1,4 @@
-QT       += core gui charts
+QT       += core gui printsupport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -16,7 +16,8 @@ SOURCES += \
     ../to_postfix_notation.c \
     graph.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qcustomplot.cpp
 
 HEADERS += \
     ../calculate.h \
@@ -25,7 +26,8 @@ HEADERS += \
     ../static_stack.h \
     ../to_postfix_notation.h \
     graph.h \
-    mainwindow.h
+    mainwindow.h \
+    qcustomplot.h
 
 FORMS += \
     graph.ui \

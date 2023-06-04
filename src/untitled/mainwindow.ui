@@ -1059,10 +1059,16 @@
     <property name="title">
      <string>Инструменты</string>
     </property>
+    <addaction name="graph"/>
    </widget>
    <addaction name="menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="graph">
+   <property name="text">
+    <string>График</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

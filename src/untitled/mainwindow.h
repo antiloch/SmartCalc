@@ -32,9 +32,10 @@ private slots:
 
     void on_graph_triggered();
 
-//    void on_lineEdit_textChanged(const QString &arg1);
-
 private:
     Ui::MainWindow *ui;
+
+signals:
+    void signal(QString zapros);
 };
 #endif // MAINWINDOW_H

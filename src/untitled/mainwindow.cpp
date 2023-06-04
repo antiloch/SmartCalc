@@ -81,19 +81,18 @@ void MainWindow::on_pushButton_backspace_clicked()
 
 void MainWindow::on_pushButton_equal_clicked()
 {
-        std::string s =ui->label_main->text().toStdString();
-        char* c_strs = const_cast<char*>(s.c_str());
-        double result = 0;
-        double var = 0;
-        bool ok = true;
-        if (ui->lineEdit->text().toDouble(&ok)) var = ui->lineEdit->text().toDouble(&ok);
-        int status = calculate(c_strs, &result, var);
-//        if (ui->lineEdit->text().toDouble()) status = 0;
-        QString result_str = QString::number(result, 'g', 7);
-        ui->label_result->setText(result_str);
-        if (status == 0 || !ok) {
-            ui->label_result->setText("Error");
-        }
+    std::string s =ui->label_main->text().toStdString();
+    char* c_strs = const_cast<char*>(s.c_str());
+    double result = 0;
+    bool ok = true;
+    double var = ui->lineEdit->text().toDouble(&ok);
+    if (!ok) var = 0;
+    int status = calculate(c_strs, &result, var);
+    QString result_str = QString::number(result, 'g', 7);
+    ui->label_result->setText(result_str);
+    if (status == 0 || !ok) {
+        ui->label_result->setText("Error");
+    }
 }
 
 
