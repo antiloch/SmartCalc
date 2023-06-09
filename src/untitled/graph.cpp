@@ -14,6 +14,11 @@ Graph::~Graph()
     delete ui;
 }
 
+void Graph::slot(char *str)
+{
+    ui->expression->setText(str);
+}
+
 void Graph::on_pushButton_clicked()
 {
 
@@ -28,9 +33,9 @@ void Graph::on_pushButton_clicked()
 
     double result = 0;
     int status = 1;
-//    std::string s =ui->label_main->text().toStdString();
-//    char* c_strs = const_cast<char*>(s.c_str());
-    char* c_strs = "x^2";
+    std::string s =ui->expression->text().toStdString();
+    char* c_strs = const_cast<char*>(s.c_str());
+//    char* c_strs = "x^2";
 
     for(double current_x = x_begin; current_x < x_end || status == 0; current_x += step)
     {

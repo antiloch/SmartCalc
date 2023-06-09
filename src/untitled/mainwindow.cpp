@@ -98,8 +98,18 @@ void MainWindow::on_pushButton_equal_clicked()
 
 void MainWindow::on_graph_triggered()
 {
-    Graph window;
-    window.setModal(true);
-    window.exec();
+    form = new Graph;
+    form->show();
+
+    connect(this, &MainWindow::signal, form, &Graph::slot);
+
+    std::string s =ui->label_main->text().toStdString();
+    char* str = const_cast<char*>(s.c_str());
+
+    emit signal(str);
+//    Graph window;
+//    window.setModal(true);
+//    window.exec();
+
 }
 

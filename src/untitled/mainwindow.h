@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <graph.h>
 
 extern "C" {
 #include "../calculate.h"
@@ -34,8 +35,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    Graph *form;
 
 signals:
-    void signal(QString zapros);
+    void signal(char *);
+
 };
 #endif // MAINWINDOW_H

@@ -3,7 +3,13 @@
 
 #include <QDialog>
 #include <QVector>
-#include <mainwindow.h>
+
+extern "C" {
+#include "../calculate.h"
+}
+//#include <mainwindow.h>
+
+
 
 
 namespace Ui {
@@ -15,11 +21,12 @@ class Graph : public QDialog
     Q_OBJECT
 
 public:
+    char* c_strs;
     explicit Graph(QWidget *parent = nullptr);
     ~Graph();
 
 public slots:
-//    void slot(QString zapros);
+    void slot(char *str);
     void on_pushButton_clicked();
 
 private:
