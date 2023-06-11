@@ -14,6 +14,7 @@ SOURCES += \
     ../number_stack.c \
     ../static_stack.c \
     ../to_postfix_notation.c \
+    credit_calc.cpp \
     graph.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -25,11 +26,13 @@ HEADERS += \
     ../number_stack.h \
     ../static_stack.h \
     ../to_postfix_notation.h \
+    credit_calc.h \
     graph.h \
     mainwindow.h \
     qcustomplot.h
 
 FORMS += \
+    credit_calc.ui \
     graph.ui \
     mainwindow.ui
 

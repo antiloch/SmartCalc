@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <graph.h>
+#include <credit_calc.h>
 
 extern "C" {
 #include "../calculate.h"
@@ -32,6 +33,11 @@ private slots:
     void on_pushButton_equal_clicked();
 
     void on_graph_triggered();
+
+    void on_lineEdit_textChanged(const QString &arg1);
+
+    void on_action_triggered();
+
 
 private:
     Ui::MainWindow *ui;

@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->lineEdit->setText("0");
 
     connect(ui->pushButton_0, SIGNAL(clicked()), this, SLOT(expression()));
     connect(ui->pushButton_1, SIGNAL(clicked()), this, SLOT(expression()));
@@ -51,6 +52,9 @@ void MainWindow::expression()
     QString label_expression = (ui->label_main->text() + button->text());
 
     ui->label_main->setText(label_expression);
+    if (ui->label_main->text().length() > 255) {
+        on_pushButton_backspace_clicked();
+    }
     ui->label_result->setText("");
 }
 
@@ -61,6 +65,9 @@ void MainWindow::expression_dif()
     QString label_expression = (ui->label_main->text() + button->text() + "(");
 
     ui->label_main->setText(label_expression);
+    if (ui->label_main->text().length() > 255) {
+        on_pushButton_backspace_clicked();
+    }
     ui->label_result->setText("");
 }
 
@@ -111,5 +118,25 @@ void MainWindow::on_graph_triggered()
 //    window.setModal(true);
 //    window.exec();
 
+}
+
+
+void MainWindow::on_lineEdit_textChanged(const QString &arg1)
+{
+    if (arg1 == "") {
+        ui->lineEdit->setText("0");
+    }
+    else if (arg1.length() > 1 && arg1[0] == '0' && arg1[1] != '.') {
+//        ui->lineEdit->setText();
+        QString label_expression = (ui->lineEdit->text());
+        ui->lineEdit->setText(label_expression.right(label_expression.size() - 1));
+    }
+}
+
+void MainWindow::on_action_triggered()
+{
+    Credit_calc window;
+    window.setModal(true);
+    window.exec();
 }
 

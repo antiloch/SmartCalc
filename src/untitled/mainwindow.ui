@@ -1007,7 +1007,7 @@
       </property>
       <property name="maximumSize">
        <size>
-        <width>2000</width>
+        <width>417</width>
         <height>100</height>
        </size>
       </property>
@@ -1017,7 +1017,7 @@
      border-width: 5px;
      border-radius: 20px;
      border-color: beige;
-     font: bold 40px;
+     font: bold 15px;
      padding: 6px;</string>
       </property>
       <property name="text">
@@ -1156,6 +1156,7 @@
      <string>Инструменты</string>
     </property>
     <addaction name="graph"/>
+    <addaction name="action"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -1163,6 +1164,11 @@
   <action name="graph">
    <property name="text">
     <string>График</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>Кредитный калькулятор</string>
    </property>
   </action>
  </widget>
