@@ -21,7 +21,7 @@ test:
 
 clean:
 	@echo "\033[1;34mCleaning\033[0m"
-	@rm -rf build/ gcov_report/ a.out test *.info *.a *.gcda app
+	@rm -rf build/ gcov_report/ a.out test *.info *.a *.gcda app Dvi
 	@rm -rf gcov_report/ *.info
 	@echo "\033[1;42m DONE \033[0m"
 
@@ -54,7 +54,8 @@ dist: uninstall install
 	@echo "\033[1;42m DONE \033[0m" 
 
 dvi:
-	@open ../README_RUS.md
+	@doxygen config
+	@open ./Dvi/html/files.html
 
 add_coverage_flag:
 	$(eval FLAGS += --coverage)	
