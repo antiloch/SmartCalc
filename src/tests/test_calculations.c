@@ -89,6 +89,10 @@ START_TEST(dificult_calculation) {
   status = calculate(test2, &result, 0);
   ck_assert_double_eq_tol(result, -1.34616200, 1e-6);
   ck_assert_int_eq(status, SUCCESS);
+  char *test3 = "2^10";
+  status = calculate(test3, &result, 0);
+  ck_assert_double_eq_tol(result, 1024, 1e-6);
+  ck_assert_int_eq(status, SUCCESS);
 }
 END_TEST
 
